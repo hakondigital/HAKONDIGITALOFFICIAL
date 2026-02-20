@@ -1,20 +1,8 @@
 import type { NextConfig } from "next";
 
 // ── Enterprise Security Headers ─────────────────────────────
-const ContentSecurityPolicy = [
-  "default-src 'self'",
-  "script-src 'self' *.vercel.app vercel.live",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https:",
-  "font-src 'self' data:",
-  "connect-src 'self' https://vitals.vercel-insights.com",
-  "frame-src 'self'",
-  "frame-ancestors 'self'",
-  "form-action 'self'",
-  "object-src 'none'",
-  "base-uri 'self'",
-  "upgrade-insecure-requests",
-].join("; ");
+// NOTE: CSP temporarily removed to restore site functionality.
+// Will be re-added with nonce-based script-src once properly configured.
 
 const securityHeaders = [
   {
@@ -40,10 +28,6 @@ const securityHeaders = [
   {
     key: "X-XSS-Protection",
     value: "1; mode=block",
-  },
-  {
-    key: "Content-Security-Policy",
-    value: ContentSecurityPolicy,
   },
 ];
 
