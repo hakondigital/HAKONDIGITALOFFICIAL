@@ -60,6 +60,18 @@ export default function Hero() {
         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
       }} />
 
+      {/* Large "M" watermark */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 0.04, scale: 1 }}
+        transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
+        className="pointer-events-none absolute right-[-5%] top-1/2 -translate-y-1/2 select-none"
+      >
+        <span className="font-heading text-[28rem] leading-none text-white sm:text-[36rem] lg:text-[48rem]">
+          M
+        </span>
+      </motion.div>
+
       <div className="relative z-10 mx-auto max-w-7xl px-6 py-32 lg:px-8">
         <motion.div
           variants={staggerContainer}
@@ -67,6 +79,24 @@ export default function Hero() {
           animate="visible"
           className="max-w-3xl"
         >
+          {/* Brand wordmark */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="mb-8"
+          >
+            <span className="font-heading text-5xl tracking-[0.15em] text-white/90 sm:text-6xl md:text-7xl lg:text-8xl">
+              MATIERE
+            </span>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              className="mt-3 h-[2px] w-32 origin-left bg-accent-light sm:w-48"
+            />
+          </motion.div>
+
           {/* Eyebrow */}
           <motion.p
             variants={fadeUp}
