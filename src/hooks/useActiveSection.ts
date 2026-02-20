@@ -1,34 +1,38 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { navLinks } from "@/lib/data";
 
-/**
- * Tracks which section is currently in view and returns its id (for scroll spy).
- */
 export function useActiveSection() {
-  const [activeSection, setActiveSection] = useState<string>("home");
-
-  const handleScroll = useCallback(() => {
-    const scrollY = window.scrollY + 120;
-
-    for (let i = navLinks.length - 1; i >= 0; i--) {
-      const href = navLinks[i].href;
-      const id = href.replace("#", "");
-      const el = document.getElementById(id);
-      if (el && el.offsetTop <= scrollY) {
-        setActiveSection(id);
-        return;
-      }
-    }
-    setActiveSection("home");
-  }, []);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [handleScroll]);
+    const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => {
+            const aIdx = sectionIds.indexOf(a.target.id);
+            const bIdx = sectionIds.indexOf(b.target.id);
+            return aIdx - bIdx;
+          });
+
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-20% 0px -70% 0px", threshold: 0 }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return activeSection;
 }

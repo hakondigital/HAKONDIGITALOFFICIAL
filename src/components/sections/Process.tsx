@@ -2,34 +2,32 @@
 
 import { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { processSteps } from "@/lib/data";
 import { fadeUp, staggerContainer } from "@/lib/animations";
-import { useSplitTextReveal } from "@/hooks/useSplitTextReveal";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export default function Process() {
-  const headingRef = useSplitTextReveal({ type: "words", stagger: 0.05 });
-  const timelineRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
+  const lineRef = useRef<HTMLDivElement>(null);
 
-  // GSAP-driven progress line animation on scroll
   useEffect(() => {
-    if (!timelineRef.current || !progressRef.current) return;
+    if (!lineRef.current) return;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        progressRef.current,
+        lineRef.current,
         { scaleY: 0 },
         {
           scaleY: 1,
           ease: "none",
           scrollTrigger: {
-            trigger: timelineRef.current,
-            start: "top 70%",
-            end: "bottom 70%",
+            trigger: lineRef.current,
+            start: "top 80%",
+            end: "bottom 40%",
             scrub: 1,
           },
         }
@@ -40,74 +38,96 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" className="bg-white py-24 lg:py-32">
+    <section id="process" className="relative bg-bg-primary py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Section header */}
-        <div className="mx-auto mb-16 max-w-2xl text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.2em] text-accent">
-            How It Works
-          </p>
-          <h2
-            ref={headingRef as React.RefObject<HTMLHeadingElement>}
-            className="font-heading text-3xl tracking-tight text-charcoal sm:text-4xl lg:text-5xl"
+        {/* Header */}
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "-80px" }}
+          className="text-center"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent"
           >
-            Our Process
-          </h2>
-          <p className="mt-4 text-lg leading-relaxed text-warm-gray">
-            From initial enquiry to final walkthrough, every step is handled
-            with care, communication, and respect for your time.
-          </p>
-        </div>
+            Process
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            className="font-heading text-3xl font-bold tracking-tight text-text-primary sm:text-4xl lg:text-5xl"
+          >
+            From Strategy to Scale
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-secondary"
+          >
+            A structured, repeatable methodology that delivers predictable
+            outcomes: on time, on spec, every engagement.
+          </motion.p>
+        </motion.div>
 
         {/* Timeline */}
-        <div ref={timelineRef} className="relative mx-auto max-w-3xl">
-          {/* Progress line */}
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-cream-dark md:left-1/2 md:-translate-x-px">
-            <div
-              ref={progressRef}
-              className="h-full w-full origin-top bg-accent"
-            />
-          </div>
+        <div className="relative mt-20">
+          {/* Animated vertical line */}
+          <div
+            ref={lineRef}
+            className="absolute left-6 top-0 h-full w-px origin-top bg-gradient-to-b from-accent via-accent/40 to-transparent lg:left-1/2 lg:-translate-x-px"
+          />
 
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            className="space-y-12"
+          viewport={{ margin: "-40px" }}
+            className="space-y-12 lg:space-y-16"
           >
-            {processSteps.map((step, i) => (
-              <motion.div
-                key={step.step}
-                variants={fadeUp}
-                custom={i}
-                className={`relative flex items-start gap-6 md:gap-0 ${
-                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-              >
-                {/* Step number dot */}
-                <div className="absolute left-6 z-10 flex h-12 w-12 -translate-x-1/2 items-center justify-center rounded-full border-4 border-white bg-accent text-sm font-bold text-white md:left-1/2">
-                  {step.step}
-                </div>
-
-                {/* Content card */}
-                <div
-                  className={`ml-16 w-full md:ml-0 md:w-[calc(50%-2rem)] ${
-                    i % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8"
+            {processSteps.map((step, i) => {
+              const isEven = i % 2 === 0;
+              return (
+                <motion.div
+                  key={i}
+                  variants={fadeUp}
+                  className={`relative flex items-start gap-8 lg:gap-0 ${
+                    isEven ? "lg:flex-row" : "lg:flex-row-reverse"
                   }`}
                 >
-                  <h3 className="font-heading text-xl text-charcoal">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-warm-gray">
-                    {step.description}
-                  </p>
-                </div>
+                  {/* Dot */}
+                  <div className="absolute left-6 -translate-x-1/2 lg:left-1/2">
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      whileInView={{ scale: 1 }}
+                      viewport={{ once: false }}
+                      transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
+                      className="flex h-12 w-12 items-center justify-center rounded-full border border-accent/30 bg-bg-primary"
+                    >
+                      <span className="font-heading text-sm font-bold text-accent">
+                        {step.step}
+                      </span>
+                    </motion.div>
+                  </div>
 
-                {/* Spacer for opposite side */}
-                <div className="hidden md:block md:w-[calc(50%-2rem)]" />
-              </motion.div>
-            ))}
+                  {/* Content */}
+                  <div
+                    className={`ml-16 lg:ml-0 lg:w-1/2 ${
+                      isEven ? "lg:pr-16 lg:text-right" : "lg:pl-16"
+                    }`}
+                  >
+                    <h3 className="font-heading text-xl font-semibold tracking-tight text-text-primary">
+                      {step.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-text-secondary">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {/* Spacer for opposite side */}
+                  <div className="hidden lg:block lg:w-1/2" />
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>

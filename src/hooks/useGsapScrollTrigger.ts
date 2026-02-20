@@ -1,31 +1,51 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
-/**
- * Hook for GSAP scroll-triggered animations.
- */
+interface ScrollTriggerOptions {
+  trigger?: string;
+  start?: string;
+  end?: string;
+  scrub?: boolean | number;
+  markers?: boolean;
+  toggleActions?: string;
+}
+
 export function useGsapScrollTrigger(
-  animationFn: (el: HTMLElement) => gsap.core.Tween | gsap.core.Timeline,
-  deps: unknown[] = []
+  animation: (tl: gsap.core.Timeline) => void,
+  options: ScrollTriggerOptions = {}
 ) {
-  const ref = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    if (!containerRef.current) return;
 
-    const ctx = gsap.context(() => {
-      animationFn(el);
-    }, el);
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: options.start || "top 80%",
+        end: options.end || "bottom 20%",
+        toggleActions: options.toggleActions || "play none none none",
+        markers: options.markers || false,
+        ...options,
+      },
+    });
 
-    return () => ctx.revert();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, deps);
+    animation(tl);
 
-  return ref;
+    return () => {
+      tl.kill();
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.trigger === containerRef.current) st.kill();
+      });
+    };
+  }, [animation, options]);
+
+  return containerRef;
 }

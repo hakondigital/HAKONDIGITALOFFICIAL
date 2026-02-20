@@ -4,12 +4,13 @@ import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import Work from "@/components/sections/Work";
 import Services from "@/components/sections/Services";
-import About from "@/components/sections/About";
+import Engineering from "@/components/sections/Engineering";
+import AISystems from "@/components/sections/AISystems";
+import Security from "@/components/sections/Security";
+import Portfolio from "@/components/sections/Portfolio";
 import Process from "@/components/sections/Process";
-import Testimonials from "@/components/sections/Testimonials";
-import FAQ from "@/components/sections/FAQ";
+import Guarantees from "@/components/sections/Guarantees";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -18,12 +19,21 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Work />
+        <div className="section-divider" />
         <Services />
-        <About />
+        <div className="section-divider" />
+        <Engineering />
+        <div className="section-divider" />
+        <AISystems />
+        <div className="section-divider" />
+        <Security />
+        <div className="section-divider" />
+        <Portfolio />
+        <div className="section-divider" />
         <Process />
-        <Testimonials />
-        <FAQ />
+        <div className="section-divider" />
+        <Guarantees />
+        <div className="section-divider" />
         <Contact />
       </main>
       <Footer />

@@ -3,10 +3,6 @@
 import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 
-/**
- * Global smooth scroll provider using Lenis.
- * Wraps the entire app to enable buttery-smooth scrolling.
- */
 export default function SmoothScrollProvider({
   children,
 }: {

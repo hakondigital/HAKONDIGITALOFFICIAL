@@ -1,73 +1,55 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 import SplitType from "split-type";
 
-gsap.registerPlugin(ScrollTrigger);
+interface SplitTextOptions {
+  type?: "words" | "chars" | "lines";
+  stagger?: number;
+  duration?: number;
+  delay?: number;
+  y?: number;
+}
 
-/**
- * Hook that splits heading text and animates words/lines on scroll using GSAP + SplitType.
- */
-export function useSplitTextReveal(
-  options: {
-    type?: "words" | "lines" | "chars";
-    stagger?: number;
-    duration?: number;
-    triggerStart?: string;
-    once?: boolean;
-  } = {}
-) {
-  const ref = useRef<HTMLElement>(null);
-
-  const {
-    type = "words",
-    stagger = 0.04,
-    duration = 0.8,
-    triggerStart = "top 85%",
-    once = true,
-  } = options;
+export function useSplitTextReveal(options: SplitTextOptions = {}) {
+  const elementRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
+    const el = elementRef.current;
     if (!el) return;
 
-    // Small delay so fonts are loaded
-    const timeout = setTimeout(() => {
-      const split = new SplitType(el, { types: type });
-      const targets =
-        type === "words"
-          ? split.words
-          : type === "lines"
-          ? split.lines
-          : split.chars;
+    const split = new SplitType(el, {
+      types: options.type === "chars" ? "chars" : options.type === "lines" ? "lines" : "words",
+    });
 
-      if (!targets || targets.length === 0) return;
+    const targets =
+      options.type === "chars"
+        ? split.chars
+        : options.type === "lines"
+        ? split.lines
+        : split.words;
 
-      gsap.set(targets, { y: 40, opacity: 0 });
+    if (!targets) return;
 
-      gsap.to(targets, {
-        y: 0,
-        opacity: 1,
-        duration,
-        stagger,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: el,
-          start: triggerStart,
-          toggleActions: once ? "play none none none" : "play none none reverse",
-        },
-      });
-    }, 100);
+    gsap.set(targets, {
+      y: options.y ?? 40,
+      opacity: 0,
+    });
+
+    gsap.to(targets, {
+      y: 0,
+      opacity: 1,
+      duration: options.duration ?? 0.8,
+      stagger: options.stagger ?? 0.04,
+      delay: options.delay ?? 0.2,
+      ease: "power3.out",
+    });
 
     return () => {
-      clearTimeout(timeout);
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === el) t.kill();
-      });
+      split.revert();
     };
-  }, [type, stagger, duration, triggerStart, once]);
+  }, [options]);
 
-  return ref;
+  return elementRef;
 }
