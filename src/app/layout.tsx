@@ -15,7 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://hakondigital.com.au"),
+  metadataBase: new URL("https://www.hakondigital.com"),
   title:
     "HAKON DIGITAL | Precision Web Engineering | Sydney, Australia",
   description:
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     "Northern Beaches web developer",
     "secure web infrastructure",
   ],
-  authors: [{ name: "Noah Campbell", url: "https://hakondigital.com.au" }],
+  authors: [{ name: "Noah Campbell", url: "https://www.hakondigital.com" }],
   openGraph: {
     title:
       "HAKON DIGITAL | Precision Web Engineering | Sydney, Australia",
     description:
       "High-performance digital engineering firm specialising in advanced JSX architecture, AI-enhanced web systems, and secure infrastructure deployment.",
-    url: "https://hakondigital.com.au",
+    url: "https://www.hakondigital.com",
     siteName: "HAKON DIGITAL",
     locale: "en_AU",
     type: "website",

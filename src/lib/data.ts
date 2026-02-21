@@ -5,7 +5,7 @@ export const siteConfig = {
   abn: "37 601 051 522",
   phone: "0431 210 436",
   email: "noahcampbell10027@outlook.com",
-  url: "https://hakondigital.com.au",
+  url: "https://www.hakondigital.com",
   socials: {
     instagram: "https://www.instagram.com/hakondigitalofficial/",
     facebook: "https://www.facebook.com/profile.php?id=61587687684275",
