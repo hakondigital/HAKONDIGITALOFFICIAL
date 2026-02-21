@@ -49,6 +49,10 @@ export const metadata: Metadata = {
     description:
       "High-performance digital engineering firm specialising in advanced web architecture and AI-enhanced systems.",
   },
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   robots: {
     index: true,
     follow: true,
