@@ -1,10 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useReducedMotion,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import gsap from "gsap";
 import SplitType from "split-type";
 import dynamic from "next/dynamic";
+import HakonLogo from "@/components/ui/HakonLogo";
 
 const TechBackground = dynamic(
   () => import("@/components/ui/TechBackground"),
@@ -12,6 +20,28 @@ const TechBackground = dynamic(
 );
 
 export default function Hero() {
+  const shouldReduceMotion = useReducedMotion();
+  const logoX = useMotionValue(0);
+  const logoY = useMotionValue(0);
+  const glowX = useMotionValue(50);
+  const glowY = useMotionValue(50);
+
+  const smoothLogoX = useSpring(logoX, {
+    stiffness: 170,
+    damping: 20,
+    mass: 0.8,
+  });
+  const smoothLogoY = useSpring(logoY, {
+    stiffness: 170,
+    damping: 20,
+    mass: 0.8,
+  });
+
+  const logoRotateX = useTransform(smoothLogoY, [-20, 20], [8, -8]);
+  const logoRotateY = useTransform(smoothLogoX, [-28, 28], [-10, 10]);
+  const logoGlow = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(56,189,248,0.42), rgba(56,189,248,0.08) 35%, rgba(5,8,16,0) 68%)`;
+
+  const logoRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtextRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
@@ -25,17 +55,30 @@ export default function Hero() {
 
     const tl = gsap.timeline({ delay: 0.3 });
 
+    gsap.set(logoRef.current, { y: 32, scale: 0.9, opacity: 0, filter: "blur(16px)" });
     gsap.set(words, { y: 60, opacity: 0 });
     gsap.set(subtextRef.current, { y: 30, opacity: 0 });
     gsap.set(ctaRef.current, { y: 20, opacity: 0 });
 
-    tl.to(words, {
+    tl.to(logoRef.current, {
       y: 0,
+      scale: 1,
       opacity: 1,
-      duration: 0.9,
-      stagger: 0.06,
-      ease: "power3.out",
+      filter: "blur(0px)",
+      duration: 1.2,
+      ease: "power4.out",
     })
+      .to(
+        words,
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          stagger: 0.06,
+          ease: "power3.out",
+        },
+        "-=0.55"
+      )
       .to(
         subtextRef.current,
         { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
@@ -52,6 +95,26 @@ export default function Hero() {
       split.revert();
     };
   }, []);
+
+  const resetLogoMotion = () => {
+    logoX.set(0);
+    logoY.set(0);
+    glowX.set(50);
+    glowY.set(50);
+  };
+
+  const handleLogoMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (shouldReduceMotion) return;
+
+    const rect = event.currentTarget.getBoundingClientRect();
+    const px = (event.clientX - rect.left) / rect.width;
+    const py = (event.clientY - rect.top) / rect.height;
+
+    logoX.set((px - 0.5) * 28);
+    logoY.set((py - 0.5) * 20);
+    glowX.set(px * 100);
+    glowY.set(py * 100);
+  };
 
   const handleScroll = (id: string) => {
     const el = document.getElementById(id);
@@ -72,6 +135,58 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-6 py-32 text-center lg:px-8">
+        {/* Hero logo reveal */}
+        <div className="mb-8 flex justify-center [perspective:1400px]">
+          <motion.div
+            ref={logoRef}
+            onMouseMove={handleLogoMove}
+            onMouseLeave={resetLogoMotion}
+            style={
+              shouldReduceMotion
+                ? undefined
+                : {
+                    x: smoothLogoX,
+                    y: smoothLogoY,
+                    rotateX: logoRotateX,
+                    rotateY: logoRotateY,
+                  }
+            }
+            className="group relative w-fit will-change-transform"
+          >
+            <motion.div
+              aria-hidden="true"
+              animate={
+                shouldReduceMotion
+                  ? undefined
+                  : { opacity: [0.25, 0.55, 0.25], scale: [0.98, 1.04, 0.98] }
+              }
+              transition={
+                shouldReduceMotion
+                  ? undefined
+                  : { duration: 4.5, repeat: Infinity, ease: "easeInOut" }
+              }
+              style={{ backgroundImage: logoGlow }}
+              className="pointer-events-none absolute -inset-10 rounded-[2.5rem] blur-2xl"
+            />
+            <div className="relative rounded-2xl border border-accent/30 bg-bg-secondary/50 px-6 py-4 shadow-[0_18px_60px_rgba(15,23,42,0.55)] backdrop-blur-sm">
+              <HakonLogo size="lg" />
+              <motion.div
+                aria-hidden="true"
+                style={{ backgroundImage: logoGlow }}
+                className="pointer-events-none absolute inset-0 rounded-2xl mix-blend-screen"
+              />
+              {!shouldReduceMotion && (
+                <motion.div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute left-4 right-4 h-px bg-gradient-to-r from-transparent via-accent/80 to-transparent"
+                  animate={{ top: ["20%", "80%", "20%"], opacity: [0.25, 0.9, 0.25] }}
+                  transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
+                />
+              )}
+            </div>
+          </motion.div>
+        </div>
+
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
