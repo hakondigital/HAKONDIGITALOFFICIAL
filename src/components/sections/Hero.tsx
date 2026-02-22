@@ -12,12 +12,19 @@ import {
 import gsap from "gsap";
 import SplitType from "split-type";
 import dynamic from "next/dynamic";
+import { Playfair_Display } from "next/font/google";
 import HakonLogo from "@/components/ui/HakonLogo";
 
 const TechBackground = dynamic(
   () => import("@/components/ui/TechBackground"),
   { ssr: false }
 );
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+});
 
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -45,8 +52,6 @@ export default function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtextRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const priceBadgeRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     if (!headlineRef.current) return;
 
@@ -59,7 +64,6 @@ export default function Hero() {
     gsap.set(logoRef.current, { y: 32, scale: 0.9, opacity: 0, filter: "blur(16px)" });
     gsap.set(words, { y: 60, opacity: 0 });
     gsap.set(subtextRef.current, { y: 30, opacity: 0 });
-    gsap.set(priceBadgeRef.current, { y: 24, opacity: 0, scale: 0.9 });
     gsap.set(ctaRef.current, { y: 20, opacity: 0 });
 
     tl.to(logoRef.current, {
@@ -85,11 +89,6 @@ export default function Hero() {
         subtextRef.current,
         { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
         "-=0.3"
-      )
-      .to(
-        priceBadgeRef.current,
-        { y: 0, opacity: 1, scale: 1, duration: 0.55, ease: "power3.out" },
-        "-=0.2"
       )
       .to(
         ctaRef.current,
@@ -204,7 +203,7 @@ export default function Hero() {
 
         <h1
           ref={headlineRef}
-          className="font-heading text-4xl font-bold leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
+          className={`${playfair.className} text-4xl font-semibold leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl lg:text-7xl`}
         >
           Professional Websites for Small Businesses — From $960 AUD
         </h1>
@@ -217,22 +216,6 @@ export default function Hero() {
           across Sydney and Australia. Clear pricing. No complexity. Just
           results.
         </p>
-
-        <div ref={priceBadgeRef} className="mx-auto mt-9 flex w-full justify-center">
-          <div className="grid h-28 w-28 place-items-center rounded-full border border-accent/35 bg-accent/10 shadow-[0_12px_40px_rgba(56,189,248,0.18)] backdrop-blur-sm">
-            <div className="text-center">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent/85">
-                From
-              </p>
-              <p className="mt-1 font-heading text-lg font-bold leading-none text-text-primary">
-                $960
-              </p>
-              <p className="mt-1 text-[11px] font-medium tracking-wide text-text-secondary">
-                AUD
-              </p>
-            </div>
-          </div>
-        </div>
 
         <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <button
