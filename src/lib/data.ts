@@ -126,13 +126,13 @@ export const processSteps = [
 
 export const portfolioItems = [
   {
-    title: "Matiere Carpentry",
+    title: "Precision Carpentry",
     category: "Business Website",
     description:
       "High-conversion website for a precision carpentry business, featuring a portfolio showcase, service breakdowns, and integrated booking system.",
-    image: "/images/matiere-carpentry.png",
+    image: "/images/carpentry-showcase.png",
     gradient: "from-amber-500/20 to-orange-500/20",
-    url: "https://matiere-exemplar.vercel.app/",
+    url: "https://www.hakondigital.com/portfolio",
   },
   {
     title: "Anthony Hamer & Associates",
@@ -141,7 +141,7 @@ export const portfolioItems = [
       "Full-service legal website with client intake automation, secure document handling, practice area pages, and professional credibility architecture.",
     image: "/images/anthony-hamer-associates.png",
     gradient: "from-blue-500/20 to-cyan-500/20",
-    url: "https://hamer-legal-exemplar.vercel.app/",
+    url: "https://www.hakondigital.com/portfolio",
   },
   {
     title: "irX Advisors",
@@ -150,7 +150,7 @@ export const portfolioItems = [
       "Professional advisory firm website with service showcases, team profiles, and a streamlined enquiry pipeline engineered for lead conversion.",
     image: "/images/irx-advisors.png",
     gradient: "from-emerald-500/20 to-teal-500/20",
-    url: "https://irx-advisors.vercel.app/",
+    url: "https://www.hakondigital.com/portfolio",
   },
 ];
 

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -14,48 +13,29 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   metadataBase: new URL("https://www.hakondigital.com"),
-  title:
-    "HAKON DIGITAL | Precision Web Engineering | Sydney, Australia",
+  title: "Hakon Digital | Premium Web Development Sydney",
   description:
-    "High-performance digital engineering firm specialising in advanced JSX architecture, AI-enhanced web systems, secure infrastructure deployment, and precision-built web platforms. Based in Balgowlah, Northern Beaches, Sydney.",
-  keywords: [
-    "web development Sydney",
-    "digital engineering firm",
-    "React development Australia",
-    "Next.js developer Sydney",
-    "AI web systems",
-    "custom web applications",
-    "TypeScript developer",
-    "Hakon Digital",
-    "Northern Beaches web developer",
-    "secure web infrastructure",
-  ],
-  authors: [{ name: "Noah Campbell", url: "https://www.hakondigital.com" }],
-  openGraph: {
-    title:
-      "HAKON DIGITAL | Precision Web Engineering | Sydney, Australia",
-    description:
-      "High-performance digital engineering firm specialising in advanced JSX architecture, AI-enhanced web systems, and secure infrastructure deployment.",
-    url: "https://www.hakondigital.com",
-    siteName: "HAKON DIGITAL",
-    locale: "en_AU",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "HAKON DIGITAL | Precision Web Engineering",
-    description:
-      "High-performance digital engineering firm specialising in advanced web architecture and AI-enhanced systems.",
-  },
+    "Hakon Digital builds premium, high-performance websites for law firms, construction companies, and growing businesses across Sydney and Australia.",
   icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
-  robots: {
-    index: true,
-    follow: true,
+  openGraph: {
+    title: "Hakon Digital | Premium Web Development Sydney",
+    description:
+      "High-performance, modern websites built for serious businesses. Based in Sydney.",
+    url: "https://www.hakondigital.com",
+    siteName: "Hakon Digital",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
   },
 };
 
