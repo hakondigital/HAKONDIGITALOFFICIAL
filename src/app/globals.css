@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-bg-primary: #050810;
-  --color-bg-secondary: #0a0f1a;
-  --color-bg-card: #111827;
-  --color-bg-card-hover: #1a2332;
-  --color-border: #1e293b;
-  --color-border-light: #334155;
-  --color-text-primary: #f0f4f8;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #64748b;
-  --color-accent: #38bdf8;
-  --color-accent-dim: #0ea5e9;
-  --color-accent-glow: rgba(56, 189, 248, 0.15);
+  --color-bg-primary: #0b1220;
+  --color-bg-secondary: #111a2b;
+  --color-bg-card: #172235;
+  --color-bg-card-hover: #1e2c42;
+  --color-border: #2a3a52;
+  --color-border-light: #3b4f6c;
+  --color-text-primary: #eaf1f7;
+  --color-text-secondary: #a4b6ca;
+  --color-text-muted: #8093a9;
+  --color-accent: #46b8eb;
+  --color-accent-dim: #2fa3d8;
+  --color-accent-glow: rgba(70, 184, 235, 0.14);
   --color-white: #ffffff;
   --color-black: #000000;
 
@@ -89,7 +89,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-accent) 0%, #818cf8 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #82d8f4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -100,10 +100,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .glass {
-  background: rgba(5, 8, 16, 0.8);
+  background: rgba(11, 18, 32, 0.78);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(59, 79, 108, 0.45);
 }
 
 .section-divider {

@@ -27,14 +27,14 @@ export default function Portfolio() {
             variants={fadeUp}
             className="font-heading text-3xl font-bold tracking-tight text-text-primary sm:text-4xl lg:text-5xl"
           >
-            Engineered Outcomes
+            Recent Small Business Projects
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-secondary"
           >
-            A selection of digital systems designed, built, and deployed by
-            Hakon Digital, each one precision-engineered for its purpose.
+            Before and after examples showing how clearer messaging and better
+            website structure can improve local business enquiries.
           </motion.p>
         </motion.div>
 

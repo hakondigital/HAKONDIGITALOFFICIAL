@@ -15,17 +15,17 @@ const inter = Inter({
 
 export const metadata = {
   metadataBase: new URL("https://www.hakondigital.com"),
-  title: "Hakon Digital | Premium Web Development Sydney",
+  title: "Hakon Digital | Affordable Website Design for Small Businesses Sydney",
   description:
-    "Hakon Digital builds premium, high-performance websites for law firms, construction companies, and growing businesses across Sydney and Australia.",
+    "Professional small business websites starting from $960 AUD. Built in Sydney. Clear pricing. Modern design. No complexity.",
   icons: {
     icon: "/favicon.ico?v=2",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Hakon Digital | Premium Web Development Sydney",
+    title: "Hakon Digital | Affordable Website Design for Small Businesses Sydney",
     description:
-      "High-performance, modern websites built for serious businesses. Based in Sydney.",
+      "Professional small business websites starting from $960 AUD. Built in Sydney. Clear pricing. Modern design. No complexity.",
     url: "https://www.hakondigital.com",
     siteName: "Hakon Digital",
     images: [

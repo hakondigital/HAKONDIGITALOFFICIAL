@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -91,7 +92,7 @@ export default function EngineeringPageContent() {
           <FloatingGrid />
           <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
             <div className="flex flex-col gap-20">
-              {principles.map((p, i) => (
+              {principles.map((p) => (
                 <motion.article
                   key={p.number}
                   variants={staggerContainer}
@@ -183,12 +184,12 @@ export default function EngineeringPageContent() {
                 See how AI-augmented precision engineering delivers results your
                 business can rely on.
               </p>
-              <a
+              <Link
                 href="/#contact"
                 className="mt-8 inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-bg-primary transition-all hover:bg-accent-dim"
               >
                 Start a Project
-              </a>
+              </Link>
             </motion.div>
           </div>
         </section>

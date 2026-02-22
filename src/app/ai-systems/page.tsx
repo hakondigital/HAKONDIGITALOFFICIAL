@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import AiSystemsPageContent from "./AiSystemsPageContent";
 
 export const metadata: Metadata = {
-  title: "AI Systems | HAKON DIGITAL",
+  title: "AI Tools for Small Businesses | Hakon Digital",
   description:
-    "Discover our perfected AI agent combination. Multi-agent orchestration, intelligent automation, and AI-augmented development that powers every HAKON DIGITAL project.",
+    "Simple AI tools for small businesses: lead capture automation, chatbots, smart contact systems, and basic CRM integrations.",
 };
 
 export default function AiSystemsPage() {

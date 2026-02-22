@@ -58,14 +58,14 @@ export default function Process() {
             variants={fadeUp}
             className="font-heading text-3xl font-bold tracking-tight text-text-primary sm:text-4xl lg:text-5xl"
           >
-            From Strategy to Scale
+            Our 4-Step Process
           </motion.h2>
           <motion.p
             variants={fadeUp}
             className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-secondary"
           >
-            A structured, repeatable methodology that delivers predictable
-            outcomes: on time, on spec, every engagement.
+            A clear path from first conversation to launch: Strategy, Design,
+            Build, and Launch.
           </motion.p>
         </motion.div>
 

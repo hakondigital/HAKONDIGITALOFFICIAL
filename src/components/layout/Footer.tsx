@@ -10,8 +10,8 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <HakonLogo size="sm" />
             <p className="mt-4 text-sm leading-relaxed text-text-muted">
-              High-performance digital engineering firm specialising in advanced
-              web architecture, AI systems, and secure infrastructure.
+              Professional websites for small businesses across Sydney and
+              Australia. Clear pricing, modern design, and practical support.
             </p>
             <p className="mt-3 text-xs text-text-muted">
               ABN: {siteConfig.abn}
@@ -24,16 +24,19 @@ export default function Footer() {
               Navigation
             </h4>
             <ul className="mt-4 space-y-2">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-text-secondary/70 transition-colors hover:text-accent"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {navLinks.map((link) => {
+                const href = link.page ?? `/${link.href}`;
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={href}
+                      className="text-sm text-text-secondary/70 transition-colors hover:text-accent"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

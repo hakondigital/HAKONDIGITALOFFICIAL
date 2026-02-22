@@ -113,8 +113,8 @@ export default function Contact() {
               variants={fadeUp}
               className="mt-4 text-base leading-relaxed text-text-secondary"
             >
-              Ready to build something engineered for precision? Reach out with
-              your project details and we will respond within 12 hours.
+              Ready for a website that helps your business grow? Share your
+              details and we will respond within 12 hours.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-10 space-y-5">
@@ -163,7 +163,7 @@ export default function Contact() {
                   Enquiry Received
                 </h3>
                 <p className="mt-2 text-sm text-text-secondary">
-                  We&apos;ll respond within 12 hours with a detailed follow-up.
+                  We&apos;ll respond within 12 hours with clear next steps.
                 </p>
                 <button
                   onClick={() => setStatus("idle")}

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 import { portfolioItems } from "@/lib/data";
@@ -15,9 +16,9 @@ export default function PortfolioPageContent() {
       <main className="bg-bg-primary">
         <PageHero
           badge="PORTFOLIO"
-          title="Engineered"
-          titleAccent="Digital Solutions"
-          description="Every project is architected through our perfected AI + human engineering pipeline, delivering 100% reliable, production-grade digital infrastructure."
+          title="Small Business"
+          titleAccent="Website Results"
+          description="Real before-and-after outcomes focused on clearer messaging, better enquiry quality, and practical business impact."
         />
 
         {/* Portfolio grid */}
@@ -94,26 +95,25 @@ export default function PortfolioPageContent() {
                 variants={fadeUp}
                 className="font-heading text-3xl font-bold text-text-primary sm:text-4xl"
               >
-                Every Project, <span className="gradient-text">Engineered</span>
+                Clear Process, Practical Outcomes
               </motion.h2>
               <motion.p
                 variants={fadeUp}
                 className="mt-6 text-base leading-relaxed text-text-secondary"
               >
-                Our portfolio reflects a consistent engineering methodology:
-                AI-augmented development paired with human oversight, TypeScript-strict
-                architecture, security-first deployment, and relentless attention to
-                performance. Each project is delivered through the same perfected
-                pipeline, ensuring 100% reliable results.
+                We keep projects simple: understand the business, clean up the
+                message, improve structure, then launch with confidence. The
+                result is a professional website that is easier for local
+                customers to trust and act on.
               </motion.p>
               <motion.div
                 variants={fadeUp}
                 className="mt-10 grid gap-6 sm:grid-cols-3"
               >
                 {[
-                  { stat: "100%", label: "Client Satisfaction" },
-                  { stat: "AI + Human", label: "Engineering Pipeline" },
-                  { stat: "0", label: "Missed Deadlines" },
+                  { stat: "Before / After", label: "Transformation Focus" },
+                  { stat: "Sydney + AU", label: "Local Business Coverage" },
+                  { stat: "$960+", label: "Starting Website Packages" },
                 ].map((item) => (
                   <div key={item.label}>
                     <div className="font-heading text-3xl font-bold text-accent">
@@ -143,15 +143,14 @@ export default function PortfolioPageContent() {
                 <span className="gradient-text">Next</span>
               </h2>
               <p className="mt-4 text-text-secondary">
-                Let&apos;s discuss how we can engineer the perfect digital
-                solution for your business.
+                Let&apos;s map out the right website setup for your business.
               </p>
-              <a
+              <Link
                 href="/#contact"
                 className="mt-8 inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-semibold text-bg-primary transition-all hover:bg-accent-dim"
               >
                 Start a Project
-              </a>
+              </Link>
             </motion.div>
           </div>
         </section>

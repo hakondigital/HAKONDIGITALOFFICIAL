@@ -17,7 +17,6 @@ export const navLinks = [
   { label: "Services", href: "#services", page: "/services" },
   { label: "Engineering", href: "#engineering", page: "/engineering" },
   { label: "AI Systems", href: "#ai-systems", page: "/ai-systems" },
-  { label: "Security", href: "#security", page: "/security" },
   { label: "Portfolio", href: "#portfolio", page: "/portfolio" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
@@ -25,102 +24,64 @@ export const navLinks = [
 
 export const services = [
   {
-    title: "Custom Web Application Development",
+    title: "Website Design & Development",
     description:
-      "Advanced JSX & React architecture with type-safe TypeScript builds, API integrations, and meticulous performance optimisation.",
+      "Modern small business websites built to look professional, load fast, and make it easy for customers to contact you.",
     features: [
-      "Advanced JSX & React architecture",
-      "Type-safe TypeScript builds",
-      "API integrations",
-      "Performance optimisation",
+      "Mobile-friendly design",
+      "Clear service pages",
+      "Fast performance and SEO-ready structure",
     ],
-    icon: "code" as const,
+    icon: "layout" as const,
   },
   {
-    title: "AI-Enhanced Web Systems",
+    title: "AI Tools & Automation",
     description:
-      "Intelligent digital infrastructure through AI agent integrations, automation workflows, conversational AI embedding, and smart business logic.",
+      "Simple AI tools that save time by handling enquiries, capturing leads, and automating repetitive admin tasks.",
     features: [
-      "AI agent integrations",
-      "Automation workflows",
-      "Conversational AI embedding",
-      "Intelligent business logic",
+      "Lead capture automation",
+      "Chatbots and smart contact forms",
+      "Basic CRM integrations",
     ],
     icon: "ai" as const,
   },
   {
-    title: "Secure Infrastructure Deployment",
+    title: "Ongoing Support",
     description:
-      "Security-first engineering with encrypted endpoints, server hardening, authentication layers, and secure form handling.",
+      "Reliable post-launch support so your website stays updated, secure, and aligned with your business goals.",
     features: [
-      "Encrypted endpoints",
-      "Server security hardening",
-      "Authentication layers",
-      "Secure form handling",
+      "Content updates when needed",
+      "Performance and uptime checks",
+      "Friendly ongoing guidance",
     ],
-    icon: "shield" as const,
-  },
-  {
-    title: "API Development & Integration",
-    description:
-      "Robust endpoint architecture including REST & custom APIs, CRM integrations, social platform APIs, and payment gateways.",
-    features: [
-      "REST & custom endpoints",
-      "CRM integrations",
-      "Social platform APIs",
-      "Payment gateways",
-    ],
-    icon: "api" as const,
-  },
-  {
-    title: "Enterprise UX/UI Engineering",
-    description:
-      "High-conversion architecture through precision layout structuring and interaction micro-optimisation.",
-    features: [
-      "High-conversion architecture",
-      "Precision layout structuring",
-      "Interaction micro-optimisation",
-    ],
-    icon: "layout" as const,
+    icon: "support" as const,
   },
 ];
 
 export const processSteps = [
   {
     step: "01",
-    title: "Strategy & System Architecture",
+    title: "Strategy",
     description:
-      "Comprehensive analysis of business requirements, technical constraints, and strategic objectives to blueprint the optimal system architecture.",
+      "We learn about your business, services, and local audience so the website has a clear purpose from day one.",
   },
   {
     step: "02",
-    title: "Design Engineering",
+    title: "Design",
     description:
-      "Every interface is engineered for precision: structured layouts, deliberate typography, and interaction patterns designed for conversion and usability.",
+      "We design a professional, easy-to-use layout that reflects your brand and helps visitors take action.",
   },
   {
     step: "03",
-    title: "Development & Integration",
+    title: "Build",
     description:
-      "AI-accelerated development paired with human engineering oversight. TypeScript-strict component systems integrated with APIs, databases, and third-party services, verified for zero technical debt.",
+      "We build your site with clean structure, fast loading speed, and the right tools for enquiries and lead capture.",
   },
   {
     step: "04",
-    title: "Security Hardening",
+    title: "Launch",
     description:
-      "Encrypted endpoints, authenticated routes, server-side validation, and deployment protocols that follow security-first engineering principles.",
-  },
-  {
-    step: "05",
-    title: "Launch & Monitoring",
-    description:
-      "Optimised deployment with performance monitoring, error tracking, and real-time analytics to ensure stability from day one.",
-  },
-  {
-    step: "06",
-    title: "Continuous Support",
-    description:
-      "Ongoing maintenance, iterative improvements, and 24/7 support treatment to ensure your digital infrastructure evolves with your business.",
+      "Once approved, we launch your new site and provide clear support so you can keep moving forward confidently.",
   },
 ];
 
@@ -129,25 +90,25 @@ export const portfolioItems = [
     title: "Precision Carpentry",
     category: "Business Website",
     description:
-      "High-conversion website for a precision carpentry business, featuring a portfolio showcase, service breakdowns, and integrated booking system.",
+      "Before: no clear online showcase. After: a modern site highlighting completed jobs and making quote requests easier for Sydney homeowners.",
     image: "/images/carpentry-showcase.png",
     gradient: "from-amber-500/20 to-orange-500/20",
     url: "https://www.hakondigital.com/portfolio",
   },
   {
     title: "Anthony Hamer & Associates",
-    category: "Legal Practice Platform",
+    category: "Legal Practice Website",
     description:
-      "Full-service legal website with client intake automation, secure document handling, practice area pages, and professional credibility architecture.",
+      "Before: dated pages with unclear service flow. After: a clear legal website that improved trust, service clarity, and local enquiry quality.",
     image: "/images/anthony-hamer-associates.png",
     gradient: "from-blue-500/20 to-cyan-500/20",
     url: "https://www.hakondigital.com/portfolio",
   },
   {
     title: "irX Advisors",
-    category: "Advisory Platform",
+    category: "Advisory Website",
     description:
-      "Professional advisory firm website with service showcases, team profiles, and a streamlined enquiry pipeline engineered for lead conversion.",
+      "Before: complex messaging and low conversion. After: simplified positioning, stronger calls to action, and better lead flow for an Australian advisory audience.",
     image: "/images/irx-advisors.png",
     gradient: "from-emerald-500/20 to-teal-500/20",
     url: "https://www.hakondigital.com/portfolio",
@@ -156,35 +117,41 @@ export const portfolioItems = [
 
 export const guarantees = [
   {
-    title: "24/7 Support Treatment",
+    title: "Transparent Pricing",
     description:
-      "Every client receives dedicated support access. Your digital infrastructure is monitored and maintained around the clock.",
-    icon: "clock" as const,
+      "Simple, upfront pricing with clear inclusions, including website design starting from $960 AUD.",
+    icon: "pricing" as const,
   },
   {
-    title: "12-Hour Response Guarantee",
+    title: "No Lock-In Contracts",
     description:
-      "Every enquiry receives a substantive response within a maximum of 12 hours. No automated replies. Direct communication.",
-    icon: "response" as const,
+      "We earn your trust through results and service quality, not long-term contract pressure.",
+    icon: "contract" as const,
   },
   {
-    title: "Money Back Guarantee",
+    title: "Australian-Based Team",
     description:
-      "If the delivered product does not meet the agreed specifications, we offer a full refund. No ambiguity.",
-    icon: "guarantee" as const,
+      "We are based in Sydney and work with small businesses across Australia.",
+    icon: "australia" as const,
   },
   {
-    title: "Precision Delivery",
+    title: "Clear Communication",
     description:
-      "Every project is delivered on the agreed timeline with the exact specifications discussed. Scope clarity from day one.",
-    icon: "target" as const,
+      "Straight answers, practical advice, and regular updates throughout your project.",
+    icon: "communication" as const,
+  },
+  {
+    title: "Honest Timelines",
+    description:
+      "Realistic delivery plans with clear milestones so you always know what is happening next.",
+    icon: "timeline" as const,
   },
 ];
 
 export const budgetRanges = [
   "Under $2,000",
-  "$2,000 – $5,000",
-  "$5,000 – $10,000",
-  "$10,000 – $25,000",
+  "$2,000 - $5,000",
+  "$5,000 - $10,000",
+  "$10,000 - $25,000",
   "$25,000+",
 ];

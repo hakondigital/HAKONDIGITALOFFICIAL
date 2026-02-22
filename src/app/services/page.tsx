@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import ServicesPageContent from "./ServicesPageContent";
 
 export const metadata: Metadata = {
-  title: "Services | HAKON DIGITAL",
+  title: "What We Do | Hakon Digital",
   description:
-    "Custom web applications, AI-enhanced systems, secure infrastructure, API development and enterprise UX engineering. Explore our full range of digital engineering services.",
+    "Website Design & Development, AI Tools & Automation, and Ongoing Support for small businesses in Sydney and across Australia.",
 };
 
 export default function ServicesPage() {

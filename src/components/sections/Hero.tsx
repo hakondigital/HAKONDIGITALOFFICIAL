@@ -39,12 +39,13 @@ export default function Hero() {
 
   const logoRotateX = useTransform(smoothLogoY, [-20, 20], [8, -8]);
   const logoRotateY = useTransform(smoothLogoX, [-28, 28], [-10, 10]);
-  const logoGlow = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(56,189,248,0.42), rgba(56,189,248,0.08) 35%, rgba(5,8,16,0) 68%)`;
+  const logoGlow = useMotionTemplate`radial-gradient(circle at ${glowX}% ${glowY}%, rgba(56,189,248,0.36), rgba(56,189,248,0.08) 35%, rgba(5,8,16,0) 68%)`;
 
   const logoRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtextRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const priceBadgeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!headlineRef.current) return;
@@ -58,6 +59,7 @@ export default function Hero() {
     gsap.set(logoRef.current, { y: 32, scale: 0.9, opacity: 0, filter: "blur(16px)" });
     gsap.set(words, { y: 60, opacity: 0 });
     gsap.set(subtextRef.current, { y: 30, opacity: 0 });
+    gsap.set(priceBadgeRef.current, { y: 24, opacity: 0, scale: 0.9 });
     gsap.set(ctaRef.current, { y: 20, opacity: 0 });
 
     tl.to(logoRef.current, {
@@ -83,6 +85,11 @@ export default function Hero() {
         subtextRef.current,
         { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
         "-=0.3"
+      )
+      .to(
+        priceBadgeRef.current,
+        { y: 0, opacity: 1, scale: 1, duration: 0.55, ease: "power3.out" },
+        "-=0.2"
       )
       .to(
         ctaRef.current,
@@ -126,16 +133,12 @@ export default function Hero() {
       id="home"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      {/* Three.js animated background */}
       <TechBackground />
 
-      {/* Gradient overlays */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-bg-primary/40 via-transparent to-bg-primary" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(56,189,248,0.06)_0%,_transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-bg-primary/30 via-transparent to-bg-primary" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(56,189,248,0.05)_0%,_transparent_70%)]" />
 
-      {/* Content */}
       <div className="relative z-10 mx-auto max-w-5xl px-6 py-32 text-center lg:px-8">
-        {/* Hero logo reveal */}
         <div className="mb-8 flex justify-center [perspective:1400px]">
           <motion.div
             ref={logoRef}
@@ -168,7 +171,7 @@ export default function Hero() {
               style={{ backgroundImage: logoGlow }}
               className="pointer-events-none absolute -inset-10 rounded-[2.5rem] blur-2xl"
             />
-            <div className="relative rounded-2xl border border-accent/30 bg-bg-secondary/50 px-6 py-4 shadow-[0_18px_60px_rgba(15,23,42,0.55)] backdrop-blur-sm">
+            <div className="relative rounded-2xl border border-accent/30 bg-bg-secondary/50 px-6 py-4 shadow-[0_18px_60px_rgba(15,23,42,0.45)] backdrop-blur-sm">
               <HakonLogo size="lg" />
               <motion.div
                 aria-hidden="true"
@@ -187,7 +190,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -196,30 +198,42 @@ export default function Hero() {
         >
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
           <span className="text-xs font-medium tracking-wider text-accent">
-            DIGITAL ENGINEERING FIRM · SYDNEY
+            SYDNEY SMALL BUSINESS WEBSITES
           </span>
         </motion.div>
 
-        {/* Headline */}
         <h1
           ref={headlineRef}
           className="font-heading text-4xl font-bold leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          Highly Engineered Digital Infrastructure
+          Professional Websites for Small Businesses — From $960 AUD
         </h1>
 
-        {/* Subtext */}
         <p
           ref={subtextRef}
           className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-text-secondary sm:text-lg"
         >
-          Hakon Digital delivers precision-built web platforms powered by an
-          engineered combination of advanced AI agents and expert human
-          oversight, architected through JSX frameworks, intelligent
-          automation, and meticulous code refinement.
+          We design modern, high-performing websites for small businesses
+          across Sydney and Australia. Clear pricing. No complexity. Just
+          results.
         </p>
 
-        {/* CTAs */}
+        <div ref={priceBadgeRef} className="mx-auto mt-9 flex w-full justify-center">
+          <div className="grid h-28 w-28 place-items-center rounded-full border border-accent/35 bg-accent/10 shadow-[0_12px_40px_rgba(56,189,248,0.18)] backdrop-blur-sm">
+            <div className="text-center">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent/85">
+                From
+              </p>
+              <p className="mt-1 font-heading text-lg font-bold leading-none text-text-primary">
+                $960
+              </p>
+              <p className="mt-1 text-[11px] font-medium tracking-wide text-text-secondary">
+                AUD
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <button
             onClick={() => handleScroll("contact")}
@@ -228,14 +242,13 @@ export default function Hero() {
             <span className="relative z-10">Start a Project</span>
           </button>
           <button
-            onClick={() => handleScroll("engineering")}
+            onClick={() => handleScroll("portfolio")}
             className="rounded-lg border border-border-light/60 px-8 py-3.5 text-sm font-medium text-text-secondary transition-all hover:border-accent/40 hover:text-accent"
           >
-            Explore Engineering
+            See Recent Work
           </button>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
