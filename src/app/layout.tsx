@@ -19,7 +19,7 @@ export const metadata = {
   description:
     "Hakon Digital builds premium, high-performance websites for law firms, construction companies, and growing businesses across Sydney and Australia.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.ico?v=2",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
