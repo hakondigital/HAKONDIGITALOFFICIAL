@@ -51,6 +51,7 @@ export default function Hero() {
   const logoRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subtextRef = useRef<HTMLParagraphElement>(null);
+  const priceBadgeRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!headlineRef.current) return;
@@ -64,6 +65,7 @@ export default function Hero() {
     gsap.set(logoRef.current, { y: 32, scale: 0.9, opacity: 0, filter: "blur(16px)" });
     gsap.set(words, { y: 60, opacity: 0 });
     gsap.set(subtextRef.current, { y: 30, opacity: 0 });
+    gsap.set(priceBadgeRef.current, { y: 16, opacity: 0 });
     gsap.set(ctaRef.current, { y: 20, opacity: 0 });
 
     tl.to(logoRef.current, {
@@ -89,6 +91,11 @@ export default function Hero() {
         subtextRef.current,
         { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" },
         "-=0.3"
+      )
+      .to(
+        priceBadgeRef.current,
+        { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" },
+        "-=0.15"
       )
       .to(
         ctaRef.current,
@@ -205,7 +212,7 @@ export default function Hero() {
           ref={headlineRef}
           className={`${playfair.className} text-4xl font-semibold leading-[1.1] tracking-tight text-text-primary sm:text-5xl md:text-6xl lg:text-7xl`}
         >
-          Professional Websites for Small Businesses — From $960 AUD
+          Professional Websites for Small Businesses
         </h1>
 
         <p
@@ -216,6 +223,17 @@ export default function Hero() {
           across Sydney and Australia. Clear pricing. No complexity. Just
           results.
         </p>
+
+        <div ref={priceBadgeRef} className="mt-8 flex justify-center">
+          <div className="inline-flex items-center gap-3 rounded-lg border border-accent/35 bg-accent/10 px-5 py-3 shadow-[0_12px_36px_rgba(56,189,248,0.16)] backdrop-blur-sm">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-accent/90">
+              Starting From
+            </span>
+            <span className="font-heading text-lg font-bold text-text-primary">
+              $960 AUD
+            </span>
+          </div>
+        </div>
 
         <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <button
@@ -254,3 +272,6 @@ export default function Hero() {
     </section>
   );
 }
+
+
+
