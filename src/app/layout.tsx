@@ -1,4 +1,5 @@
 import { Space_Grotesk, Inter, Barlow } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -58,6 +59,7 @@ export default function RootLayout({
         className={`${spaceGrotesk.variable} ${inter.variable} ${barlow.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
