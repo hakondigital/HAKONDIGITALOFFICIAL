@@ -2,11 +2,10 @@
 
 import { motion } from "framer-motion";
 import { services } from "@/lib/data";
-import { fadeUp, staggerContainer } from "@/lib/animations";
+import { fadeUp, staggerContainer, viewport } from "@/lib/motion";
 
 function ServiceIcon({ type }: { type: string }) {
   const base = "h-5 w-5 text-accent";
-
   switch (type) {
     case "layout":
       return (
@@ -17,7 +16,7 @@ function ServiceIcon({ type }: { type: string }) {
     case "ai":
       return (
         <svg className={base} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z" />
         </svg>
       );
     case "support":
@@ -34,32 +33,20 @@ function ServiceIcon({ type }: { type: string }) {
 export default function Services() {
   return (
     <section id="services" className="relative bg-bg-secondary py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="pointer-events-none absolute inset-0 line-grid opacity-20" />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ margin: "-80px" }}
-          className="text-center"
+          viewport={viewport.standard}
         >
-          <motion.p
-            variants={fadeUp}
-            className="mb-3 text-xs font-semibold uppercase tracking-[0.25em] text-accent"
-          >
-            Services
-          </motion.p>
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading text-3xl font-bold tracking-tight text-text-primary sm:text-4xl lg:text-5xl"
-          >
+          <motion.div variants={fadeUp} className="section-module mb-5">SYS.002 — SERVICES</motion.div>
+          <motion.h2 variants={fadeUp} className="font-heading text-3xl font-bold tracking-tight text-text-primary sm:text-4xl lg:text-5xl">
             What We Do
           </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-secondary"
-          >
-            Clear services designed for small businesses that want a strong
-            website, better lead flow, and reliable support.
+          <motion.p variants={fadeUp} className="mt-4 max-w-2xl text-base leading-relaxed text-text-secondary">
+            Clear services designed for small businesses that want a strong website, better lead flow, and reliable support.
           </motion.p>
         </motion.div>
 
@@ -67,29 +54,24 @@ export default function Services() {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ margin: "-60px" }}
+          viewport={viewport.tight}
           className="mt-16 grid gap-6 md:grid-cols-3"
         >
           {services.map((service) => (
             <motion.article
               key={service.title}
               variants={fadeUp}
-              whileHover={{ y: -4, transition: { duration: 0.25 } }}
-              className="group rounded-xl border border-border/60 bg-bg-card p-8 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5"
+              className="card-lift corner-marks group rounded-lg border border-border/60 bg-bg-card p-8 hover:border-accent/20"
             >
-              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg border border-accent/20 bg-accent/10">
+              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md border border-accent/20 bg-accent/8">
                 <ServiceIcon type={service.icon} />
               </div>
-              <h3 className="font-heading text-lg font-semibold tracking-tight text-text-primary">
-                {service.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-text-secondary">
-                {service.description}
-              </p>
+              <h3 className="font-heading text-lg font-semibold tracking-tight text-text-primary">{service.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-text-secondary">{service.description}</p>
               <ul className="mt-5 space-y-2">
                 {service.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-2 text-[13px] text-text-muted">
-                    <span className="h-1 w-1 rounded-full bg-accent/60" />
+                  <li key={feature} className="flex items-center gap-2.5 text-[13px] text-text-muted">
+                    <span className="h-px w-3 bg-accent/40 shrink-0" />
                     {feature}
                   </li>
                 ))}

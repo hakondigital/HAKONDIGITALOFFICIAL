@@ -16,27 +16,23 @@ export default function Header() {
   const isHome = pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleAnchorClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    if (!isHome) return; // let Next.js handle page navigation
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!isHome) return;
     e.preventDefault();
     const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setIsMobileMenuOpen(false);
   };
 
   const getHref = (link: (typeof navLinks)[number]) => {
-    if (isHome) return link.href; // anchor on homepage
-    if (link.page) return link.page; // dedicated page route
-    return `/${link.href}`; // fallback to homepage anchor
+    if (isHome) return link.href;
+    if (link.page) return link.page;
+    return `/${link.href}`;
   };
 
   const isActive = (link: (typeof navLinks)[number]) => {
@@ -48,17 +44,25 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
-        isScrolled ? "glass shadow-lg shadow-black/10" : "bg-transparent"
+        isScrolled ? "glass shadow-lg shadow-black/20" : "bg-transparent"
       }`}
     >
+      {/* Top hairline */}
+      {isScrolled && (
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+      )}
+
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
         {/* Logo */}
-        <Link
-          href="/"
-          className="transition-opacity hover:opacity-80"
-        >
+        <Link href="/" className="group flex items-center gap-2 transition-opacity hover:opacity-80">
           <HakonLogo size="sm" />
         </Link>
+
+        {/* System status — desktop only */}
+        <div className="hidden items-center gap-2 lg:flex">
+          <div className="status-dot" style={{ width: "4px", height: "4px" }} />
+          <span className="mono-label" style={{ fontSize: "9px", opacity: 0.4 }}>SYS ONLINE</span>
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden items-center gap-1 lg:flex">
@@ -73,9 +77,7 @@ export default function Header() {
                 href={link.href}
                 onClick={(e) => handleAnchorClick(e, link.href)}
                 className={`relative px-3 py-2 text-[13px] font-medium tracking-wide transition-colors ${
-                  active
-                    ? "text-accent"
-                    : "text-text-secondary hover:text-text-primary"
+                  active ? "text-accent" : "text-text-secondary hover:text-text-primary"
                 }`}
               >
                 {link.label}
@@ -92,9 +94,7 @@ export default function Header() {
                 key={link.label}
                 href={href}
                 className={`relative px-3 py-2 text-[13px] font-medium tracking-wide transition-colors ${
-                  active
-                    ? "text-accent"
-                    : "text-text-secondary hover:text-text-primary"
+                  active ? "text-accent" : "text-text-secondary hover:text-text-primary"
                 }`}
               >
                 {link.label}
@@ -108,6 +108,7 @@ export default function Header() {
               </Link>
             );
           })}
+
           <Link
             href={isHome ? "#contact" : "/#contact"}
             onClick={(e) => {
@@ -116,13 +117,13 @@ export default function Header() {
                 document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
               }
             }}
-            className="ml-4 rounded-md border border-accent/30 bg-accent/10 px-5 py-2 text-[13px] font-medium text-accent transition-all hover:border-accent/60 hover:bg-accent/20"
+            className="ml-4 rounded-md border border-accent/25 bg-accent/8 px-5 py-2 text-[13px] font-medium text-accent transition-all hover:border-accent/50 hover:bg-accent/15 hover:shadow-[0_0_16px_rgba(0,200,255,0.15)]"
           >
             Start a Project
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
+        {/* Mobile toggle */}
         <button
           type="button"
           className="flex flex-col items-center justify-center gap-1.5 p-2 lg:hidden"
@@ -131,9 +132,7 @@ export default function Header() {
           aria-expanded={isMobileMenuOpen}
         >
           <motion.span
-            animate={
-              isMobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }
-            }
+            animate={isMobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
             className="block h-px w-6 bg-text-primary"
           />
           <motion.span
@@ -141,17 +140,13 @@ export default function Header() {
             className="block h-px w-6 bg-text-primary"
           />
           <motion.span
-            animate={
-              isMobileMenuOpen
-                ? { rotate: -45, y: -6 }
-                : { rotate: 0, y: 0 }
-            }
+            animate={isMobileMenuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
             className="block h-px w-6 bg-text-primary"
           />
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -173,9 +168,7 @@ export default function Header() {
                     href={link.href}
                     onClick={(e) => handleAnchorClick(e, link.href)}
                     className={`rounded-md px-3 py-3 text-sm font-medium transition-colors ${
-                      active
-                        ? "bg-accent/10 text-accent"
-                        : "text-text-secondary hover:bg-white/5 hover:text-text-primary"
+                      active ? "bg-accent/10 text-accent" : "text-text-secondary hover:bg-white/5 hover:text-text-primary"
                     }`}
                   >
                     {link.label}
@@ -186,9 +179,7 @@ export default function Header() {
                     href={href}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className={`rounded-md px-3 py-3 text-sm font-medium transition-colors ${
-                      active
-                        ? "bg-accent/10 text-accent"
-                        : "text-text-secondary hover:bg-white/5 hover:text-text-primary"
+                      active ? "bg-accent/10 text-accent" : "text-text-secondary hover:bg-white/5 hover:text-text-primary"
                     }`}
                   >
                     {link.label}
@@ -204,7 +195,7 @@ export default function Header() {
                   }
                   setIsMobileMenuOpen(false);
                 }}
-                className="mt-2 rounded-md border border-accent/30 bg-accent/10 px-5 py-3 text-center text-sm font-medium text-accent transition-all hover:bg-accent/20"
+                className="mt-2 rounded-md border border-accent/25 bg-accent/8 px-5 py-3 text-center text-sm font-medium text-accent transition-all hover:bg-accent/15"
               >
                 Start a Project
               </Link>

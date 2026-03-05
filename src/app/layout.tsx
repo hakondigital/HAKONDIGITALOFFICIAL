@@ -1,4 +1,4 @@
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, Barlow } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -10,6 +10,14 @@ const spaceGrotesk = Space_Grotesk({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+// Display font for hero headlines — clean geometric grotesk, Palantir-style weight
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  variable: "--font-barlow",
   display: "swap",
 });
 
@@ -47,7 +55,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} antialiased`}
+        className={`${spaceGrotesk.variable} ${inter.variable} ${barlow.variable} antialiased`}
       >
         {children}
       </body>

@@ -13,10 +13,14 @@ import Process from "@/components/sections/Process";
 import Guarantees from "@/components/sections/Guarantees";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
+import { CommandPalette, useCommandPalette } from "@/components/ui/CommandPalette";
 
-export default function Home() {
+function HomeContent() {
+  const { open, onClose } = useCommandPalette();
+
   return (
-    <SmoothScrollProvider>
+    <>
+      <CommandPalette open={open} onClose={onClose} />
       <Header />
       <main>
         <Hero />
@@ -40,6 +44,14 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+    </>
+  );
+}
+
+export default function Home() {
+  return (
+    <SmoothScrollProvider>
+      <HomeContent />
     </SmoothScrollProvider>
   );
 }
