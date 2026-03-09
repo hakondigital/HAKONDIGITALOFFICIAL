@@ -102,10 +102,9 @@ export const breakpoints = {
 /** Section module labels — brand-relevant telemetry vocabulary */
 export const moduleLabels = {
   home: 'SYS.001 — HAKON DIGITAL',
-  overview: 'SYS.001 — OVERVIEW',
-  services: 'SYS.002 — SERVICES',
-  engineering: 'SYS.003 — ENGINEERING',
-  aiSystems: 'SYS.004 — AI SYSTEMS',
+  websites: 'SYS.002 — WEBSITES',
+  softwareSystems: 'SYS.003 — SOFTWARE SYSTEMS',
+  leadEngine: 'SYS.004 — LEADENGINE',
   portfolio: 'SYS.005 — PORTFOLIO',
   process: 'SYS.006 — PROCESS',
   commitments: 'SYS.007 — COMMITMENTS',

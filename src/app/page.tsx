@@ -4,10 +4,9 @@ import SmoothScrollProvider from "@/components/layout/SmoothScrollProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
-import SmallBusinessSeo from "@/components/sections/SmallBusinessSeo";
-import Services from "@/components/sections/Services";
-import Engineering from "@/components/sections/Engineering";
-import AISystems from "@/components/sections/AISystems";
+import Websites from "@/components/sections/Websites";
+import SoftwareSystems from "@/components/sections/SoftwareSystems";
+import LeadEngine from "@/components/sections/LeadEngine";
 import Portfolio from "@/components/sections/Portfolio";
 import Process from "@/components/sections/Process";
 import Guarantees from "@/components/sections/Guarantees";
@@ -25,13 +24,11 @@ function HomeContent() {
       <main>
         <Hero />
         <div className="section-divider" />
-        <SmallBusinessSeo />
+        <Websites />
         <div className="section-divider" />
-        <Services />
+        <SoftwareSystems />
         <div className="section-divider" />
-        <Engineering />
-        <div className="section-divider" />
-        <AISystems />
+        <LeadEngine />
         <div className="section-divider" />
         <Portfolio />
         <div className="section-divider" />

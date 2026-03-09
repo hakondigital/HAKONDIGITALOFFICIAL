@@ -107,7 +107,8 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-.gradient-text {
+.gradient-text,
+.gradient-text * {
   background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-bright) 60%, #a0e8ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -14,9 +14,9 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Home", href: "#home", page: "/" },
-  { label: "Services", href: "#services", page: "/services" },
-  { label: "Engineering", href: "#engineering", page: "/engineering" },
-  { label: "AI Systems", href: "#ai-systems", page: "/ai-systems" },
+  { label: "Websites", href: "#websites", page: "/websites" },
+  { label: "Software", href: "#software-systems", page: "/software" },
+  { label: "LeadEngine", href: "#leadengine", page: "/leadengine" },
   { label: "Portfolio", href: "#portfolio", page: "/portfolio" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
@@ -24,35 +24,35 @@ export const navLinks = [
 
 export const services = [
   {
-    title: "Website Design & Development",
+    title: "Web Application Engineering",
     description:
-      "Modern small business websites built to look professional, load fast, and make it easy for customers to contact you.",
+      "High-performance web applications built with modern frameworks, optimised for speed, reliability, and seamless user experience.",
     features: [
-      "Mobile-friendly design",
-      "Clear service pages",
-      "Fast performance and SEO-ready structure",
+      "Next.js and React architecture",
+      "Sub-second load performance",
+      "SEO-engineered structure",
     ],
     icon: "layout" as const,
   },
   {
-    title: "AI Tools & Automation",
+    title: "Custom Software Development",
     description:
-      "Simple AI tools that save time by handling enquiries, capturing leads, and automating repetitive admin tasks.",
+      "Bespoke software systems designed to automate workflows, capture data, and scale alongside your business operations.",
     features: [
-      "Lead capture automation",
-      "Chatbots and smart contact forms",
-      "Basic CRM integrations",
+      "Business process automation",
+      "API design and integrations",
+      "Dashboard and reporting systems",
     ],
     icon: "ai" as const,
   },
   {
-    title: "Ongoing Support",
+    title: "Infrastructure & Support",
     description:
-      "Reliable post-launch support so your website stays updated, secure, and aligned with your business goals.",
+      "Continuous deployment pipelines, uptime monitoring, and engineering support to keep your systems running at peak performance.",
     features: [
-      "Content updates when needed",
-      "Performance and uptime checks",
-      "Friendly ongoing guidance",
+      "CI/CD and deployment automation",
+      "Performance monitoring",
+      "Ongoing engineering support",
     ],
     icon: "support" as const,
   },

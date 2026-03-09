@@ -66,15 +66,15 @@ function IntelPanel() {
         <div className="flex items-center justify-between border-b border-border px-5 py-3">
           <div className="flex items-center gap-2">
             <div className="status-dot" />
-            <span className="mono-label">HAKON — INTEL</span>
+            <span className="mono-label">HAKON — SYSTEMS</span>
           </div>
-          <span className="mono-label opacity-40">v2.4.1</span>
+          <span className="mono-label opacity-40">v3.0.0</span>
         </div>
         <div className="divide-y divide-border/50 px-5">
           {[
-            { label: "PROJECTS DEPLOYED", value: 27, suffix: "+", pct: 92 },
-            { label: "PERF SCORE", value: 98, suffix: "", pct: 98 },
-            { label: "CLIENT SATISFACTION", value: 100, suffix: "%", pct: 100 },
+            { label: "SYSTEMS DEPLOYED", value: 27, suffix: "+", pct: 92 },
+            { label: "PERFORMANCE INDEX", value: 98, suffix: "", pct: 98 },
+            { label: "CLIENT RETENTION", value: 100, suffix: "%", pct: 100 },
           ].map((m, i) => (
             <div key={m.label} className="py-4">
               <div className="flex items-baseline justify-between">
@@ -89,8 +89,8 @@ function IntelPanel() {
         </div>
         <div className="border-t border-border px-5 py-4 space-y-3">
           {[
-            { label: "RESPONSE TIME", val: "< 1.2s AVG", pct: 96, delay: 1.1 },
-            { label: "UPTIME SLA", val: "99.9%", pct: 99.9, delay: 1.25 },
+            { label: "AVG LOAD TIME", val: "< 1.2s", pct: 96, delay: 1.1 },
+            { label: "SYSTEM UPTIME", val: "99.9%", pct: 99.9, delay: 1.25 },
           ].map(m => (
             <div key={m.label}>
               <div className="flex items-center justify-between mb-1">
@@ -163,20 +163,23 @@ export default function Hero() {
               className="text-4xl font-bold text-text-primary sm:text-5xl lg:text-[3.6rem] xl:text-[4rem]"
               style={{ fontFamily: "var(--font-barlow), var(--font-space-grotesk), sans-serif", letterSpacing: "-0.04em", lineHeight: 1.0, fontWeight: 700 }}
             >
-              Precision Websites.{" "}
-              <span className="gradient-text">Engineered</span> for Growth.
+              Engineering Digital{" "}
+              <span className="gradient-text">Infrastructure</span> for Modern Businesses.
             </h1>
             <p
               ref={subtextRef}
               className={`mt-7 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg ${shouldReduceMotion ? "" : "opacity-0"}`}
             >
-              Modern, high-performing websites for small businesses across Sydney and Australia. Clear pricing. No lock-in. Measurable results from day one.
+              High-performance websites, custom software systems, and proprietary platforms — built with engineering precision for businesses that demand reliability and scale.
             </p>
             <div ref={badgeRef} className={`mt-8 ${shouldReduceMotion ? "" : "opacity-0"}`}>
               <div className="inline-flex items-center gap-3 rounded-md border border-accent/20 bg-accent/5 px-4 py-2.5">
                 <div className="status-dot" />
-                <span className="mono-label" style={{ opacity: 0.65 }}>STARTING FROM</span>
-                <span className="font-heading text-sm font-bold text-text-primary tracking-wide">$960 AUD</span>
+                <span className="mono-label" style={{ opacity: 0.65 }}>WEB SYSTEMS</span>
+                <span className="mx-1 h-3 w-px bg-border-light/40" />
+                <span className="mono-label" style={{ opacity: 0.65 }}>SOFTWARE</span>
+                <span className="mx-1 h-3 w-px bg-border-light/40" />
+                <span className="mono-label" style={{ opacity: 0.65 }}>SAAS PLATFORMS</span>
               </div>
             </div>
             <div ref={ctaRef} className={`mt-10 flex flex-wrap items-center gap-4 ${shouldReduceMotion ? "" : "opacity-0"}`}>
