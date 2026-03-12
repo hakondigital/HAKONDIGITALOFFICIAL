@@ -59,10 +59,10 @@ export default function LeadEngine() {
               priority={false}
             />
           </motion.div>
-          <motion.div variants={fadeUp} className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/8 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-accent">
-              Now Available
+          <motion.div variants={fadeUp} className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/8 px-4 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-secondary">
+              Launching March 20, 2026
             </span>
           </motion.div>
           <motion.h2
@@ -131,9 +131,9 @@ export default function LeadEngine() {
               </span>
             </div>
             <p className="max-w-lg text-sm leading-relaxed text-text-secondary">
-              Odyssey is live and available to all Hakon Digital clients.
-              Integrated AI communication features are actively expanding —
-              get in touch to onboard your business.
+              Odyssey is currently in final development and launches on March 20,
+              2026. Early access will be available to existing Hakon Digital
+              clients — get in touch to reserve your spot.
             </p>
           </motion.div>
         </motion.div>
