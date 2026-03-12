@@ -16,7 +16,7 @@ export const navLinks = [
   { label: "Home", href: "#home", page: "/" },
   { label: "Websites", href: "#websites", page: "/websites" },
   { label: "Software", href: "#software-systems", page: "/software" },
-  { label: "LeadEngine", href: "#leadengine", page: "/leadengine" },
+  { label: "Odyssey", href: "#odyssey", page: "/odyssey" },
   { label: "Portfolio", href: "#portfolio", page: "/portfolio" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },

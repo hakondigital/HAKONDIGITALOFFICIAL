@@ -6,30 +6,30 @@ import { fadeUp, staggerContainer, viewport } from "@/lib/motion";
 
 const features = [
   {
-    label: "Automated Lead Capture",
+    label: "AI-Powered Lead Communication",
     description:
-      "Automatically captures website enquiries and form submissions, routing them into a structured pipeline with zero manual intervention.",
+      "Intelligent automated outreach that engages prospects the moment they connect — personalised follow-ups, smart scheduling, and conversational AI that nurtures leads while you focus on closing.",
   },
   {
-    label: "Intelligent Contact Organisation",
+    label: "Intuitive CRM Dashboard",
     description:
-      "Organises contacts, prospects, and client data intelligently — categorised by source, status, and engagement history.",
+      "A clean, powerful interface designed for speed. Manage your entire pipeline at a glance — no steep learning curves, no cluttered screens. Just the data you need, exactly when you need it.",
   },
   {
-    label: "Hakon Digital Integration",
+    label: "Seamless Hakon Digital Integration",
     description:
-      "Natively integrates with websites built by Hakon Digital, providing seamless data flow between your web presence and CRM.",
+      "Natively connects with every Hakon Digital website and system. Leads flow directly from your web presence into Odyssey with zero configuration — one ecosystem, fully unified.",
   },
   {
-    label: "Growth Automation",
+    label: "Automated Pipeline Intelligence",
     description:
-      "Simple, powerful automation tools for follow-ups, task assignment, and pipeline management — designed to accelerate business growth.",
+      "From lead scoring to task automation, Odyssey learns your workflow and optimises it. Automatic follow-up reminders, deal stage progression, and performance insights — all running in the background.",
   },
 ];
 
 export default function LeadEngine() {
   return (
-    <section id="leadengine" className="relative bg-bg-primary py-24 lg:py-32">
+    <section id="odyssey" className="relative bg-bg-primary py-24 lg:py-32">
       <div className="pointer-events-none absolute inset-0 dot-grid opacity-15" />
       <div
         className="pointer-events-none absolute inset-0"
@@ -47,31 +47,38 @@ export default function LeadEngine() {
           className="text-center"
         >
           <motion.div variants={fadeUp} className="section-module mb-5 justify-center">
-            SYS.004 — LEADENGINE
+            SYS.004 — ODYSSEY
           </motion.div>
           <motion.div variants={fadeUp} className="mx-auto mb-8">
             <Image
-              src="/images/leadengine-logo.png"
-              alt="LeadEngine — Powered by Hakon Digital"
+              src="/images/odyssey-logo.png"
+              alt="Odyssey — Powered by Hakon Digital"
               width={420}
               height={210}
               className="mx-auto"
               priority={false}
             />
           </motion.div>
-          <motion.div variants={fadeUp} className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/8 px-4 py-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-secondary">
-              In Development
+          <motion.div variants={fadeUp} className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/8 px-4 py-1.5">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-accent">
+              Now Available
             </span>
           </motion.div>
+          <motion.h2
+            variants={fadeUp}
+            className="mx-auto mt-4 max-w-3xl font-heading text-3xl font-bold tracking-tight text-text-primary lg:text-4xl"
+          >
+            The CRM built for businesses that move fast
+          </motion.h2>
           <motion.p
             variants={fadeUp}
             className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-text-secondary lg:text-lg"
           >
-            A next-generation lead capture and client management platform
-            engineered for small to medium businesses. LeadEngine transforms
-            how you acquire, organise, and convert prospects into clients.
+            Odyssey is a next-generation client relationship platform with
+            AI at its core. Effortless to navigate, powerful under the hood —
+            it automates lead communication, organises your pipeline, and
+            turns prospects into clients without the complexity of legacy CRMs.
           </motion.p>
         </motion.div>
 
@@ -124,9 +131,9 @@ export default function LeadEngine() {
               </span>
             </div>
             <p className="max-w-lg text-sm leading-relaxed text-text-secondary">
-              LeadEngine is currently under active development as part of Hakon
-              Digital&apos;s expanding software ecosystem. Early access will be
-              available to existing clients.
+              Odyssey is live and available to all Hakon Digital clients.
+              Integrated AI communication features are actively expanding —
+              get in touch to onboard your business.
             </p>
           </motion.div>
         </motion.div>
