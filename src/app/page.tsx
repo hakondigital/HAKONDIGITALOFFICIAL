@@ -8,6 +8,7 @@ import Websites from "@/components/sections/Websites";
 import SoftwareSystems from "@/components/sections/SoftwareSystems";
 import LeadEngine from "@/components/sections/LeadEngine";
 import Portfolio from "@/components/sections/Portfolio";
+import About from "@/components/sections/About";
 import Process from "@/components/sections/Process";
 import Guarantees from "@/components/sections/Guarantees";
 import Faq from "@/components/sections/Faq";
@@ -31,6 +32,8 @@ function HomeContent() {
         <LeadEngine />
         <div className="section-divider" />
         <Portfolio />
+        <div className="section-divider" />
+        <About />
         <div className="section-divider" />
         <Process />
         <div className="section-divider" />

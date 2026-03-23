@@ -15,10 +15,10 @@ export default function PortfolioPageContent() {
       <Header />
       <main className="bg-bg-primary">
         <PageHero
-          badge="PORTFOLIO"
-          title="Small Business"
-          titleAccent="Website Results"
-          description="Real before-and-after outcomes focused on clearer messaging, better enquiry quality, and practical business impact."
+          badge="TEMPLATES"
+          title="Website"
+          titleAccent="Templates"
+          description="Example designs showcasing the types of websites we build — from trade businesses to professional services and advisory firms."
         />
 
         {/* Portfolio grid */}
@@ -32,11 +32,8 @@ export default function PortfolioPageContent() {
               className="grid gap-8 md:grid-cols-2"
             >
               {portfolioItems.map((item) => (
-                <motion.a
+                <motion.div
                   key={item.title}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   variants={fadeUp}
                   className="group relative overflow-hidden rounded-2xl border border-white/5 bg-bg-card"
                 >
@@ -59,6 +56,11 @@ export default function PortfolioPageContent() {
                         {item.category}
                       </span>
                     </div>
+                    <div className="absolute top-4 right-4">
+                      <span className="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-[11px] font-medium tracking-wide text-white/70 backdrop-blur-sm">
+                        EXAMPLE
+                      </span>
+                    </div>
                   </div>
 
                   {/* Content */}
@@ -69,14 +71,8 @@ export default function PortfolioPageContent() {
                     <p className="mt-3 text-sm leading-relaxed text-text-secondary">
                       {item.description}
                     </p>
-                    <div className="mt-5 flex items-center gap-2 text-sm text-accent">
-                      <span>Visit Live Site</span>
-                      <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                      </svg>
-                    </div>
                   </div>
-                </motion.a>
+                </motion.div>
               ))}
             </motion.div>
           </div>
@@ -111,7 +107,7 @@ export default function PortfolioPageContent() {
                 className="mt-10 grid gap-6 sm:grid-cols-3"
               >
                 {[
-                  { stat: "Before / After", label: "Transformation Focus" },
+                  { stat: "Custom Built", label: "No Templates or Builders" },
                   { stat: "Sydney + AU", label: "Local Business Coverage" },
                   { stat: "$960+", label: "Starting Website Packages" },
                 ].map((item) => (

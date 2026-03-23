@@ -17,7 +17,8 @@ export const navLinks = [
   { label: "Websites", href: "#websites", page: "/websites" },
   { label: "Software", href: "#software-systems", page: "/software" },
   { label: "Odyssey", href: "#odyssey", page: "/odyssey" },
-  { label: "Portfolio", href: "#portfolio", page: "/portfolio" },
+  { label: "Templates", href: "#portfolio", page: "/portfolio" },
+  { label: "About", href: "#about" },
   { label: "Process", href: "#process" },
   { label: "Contact", href: "#contact" },
 ];
@@ -87,31 +88,28 @@ export const processSteps = [
 
 export const portfolioItems = [
   {
-    title: "Precision Carpentry",
+    title: "Trades & Construction",
     category: "Business Website",
     description:
-      "Before: no clear online showcase. After: a modern site highlighting completed jobs and making quote requests easier for Sydney homeowners.",
+      "A modern template for trade businesses — showcasing completed projects, services, and making quote requests easy for local homeowners.",
     image: "/images/carpentry-showcase.png",
     gradient: "from-amber-500/20 to-orange-500/20",
-    url: "https://www.hakondigital.com/portfolio",
   },
   {
-    title: "Anthony Hamer & Associates",
-    category: "Legal Practice Website",
+    title: "Legal & Professional Services",
+    category: "Professional Website",
     description:
-      "Before: dated pages with unclear service flow. After: a clear legal website that improved trust, service clarity, and local enquiry quality.",
+      "A clean, trust-building template for law firms and professional services — clear service pages, client testimonials, and enquiry flows.",
     image: "/images/anthony-hamer-associates.png",
     gradient: "from-blue-500/20 to-cyan-500/20",
-    url: "https://www.hakondigital.com/portfolio",
   },
   {
-    title: "irX Advisors",
+    title: "Advisory & Consulting",
     category: "Advisory Website",
     description:
-      "Before: complex messaging and low conversion. After: simplified positioning, stronger calls to action, and better lead flow for an Australian advisory audience.",
+      "A polished template for advisory and consulting firms — simplified positioning, strong calls to action, and optimised lead capture.",
     image: "/images/irx-advisors.png",
     gradient: "from-emerald-500/20 to-teal-500/20",
-    url: "https://www.hakondigital.com/portfolio",
   },
 ];
 

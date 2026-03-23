@@ -17,7 +17,8 @@ const NAV_ITEMS: NavItem[] = [
   { id: "websites", label: "Websites", module: "SYS.002", description: "High-performance web systems", href: "#websites", isAnchor: true },
   { id: "software-systems", label: "Software Systems", module: "SYS.003", description: "Custom software engineering and automation", href: "#software-systems", isAnchor: true },
   { id: "odyssey", label: "Odyssey CRM", module: "SYS.004", description: "AI-powered client relationship platform", href: "#odyssey", isAnchor: true },
-  { id: "portfolio", label: "Portfolio", module: "SYS.005", description: "Recent projects and deployments", href: "#portfolio", isAnchor: true },
+  { id: "portfolio", label: "Templates", module: "SYS.005", description: "Example website templates we build", href: "#portfolio", isAnchor: true },
+  { id: "about", label: "About", module: "SYS.010", description: "Meet the founder — Noah Campbell", href: "#about", isAnchor: true },
   { id: "process", label: "Process", module: "SYS.006", description: "Strategy, design, build, launch", href: "#process", isAnchor: true },
   { id: "contact", label: "Contact", module: "SYS.009", description: "Start a project — respond within 12 hours", href: "#contact", isAnchor: true },
 ];
