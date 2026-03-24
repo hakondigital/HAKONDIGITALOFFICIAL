@@ -1,10 +1,10 @@
 export const siteConfig = {
   name: "HAKON DIGITAL",
   founder: "Noah Campbell",
-  location: "Balgowlah, Northern Beaches, Sydney, Australia",
+  location: "Sydney, Australia",
   abn: "37 601 051 522",
   phone: "0431 210 436",
-  email: "noahcampbell10027@outlook.com",
+  email: "noahcampbell@hakondigital.com",
   url: "https://www.hakondigital.com",
   socials: {
     instagram: "https://www.instagram.com/hakondigitalofficial/",
