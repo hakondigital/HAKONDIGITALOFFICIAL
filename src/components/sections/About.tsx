@@ -23,21 +23,7 @@ const timeline = [
     title: "Founder & Chief Technology Officer",
     org: "Hakon Digital",
     description:
-      "Running a software engineering and web development studio from Sydney's Northern Beaches. Building high-performance websites, custom software systems, and the Odyssey CRM platform.",
-  },
-  {
-    year: "Education",
-    title: "St Aloysius' College",
-    org: "Kirribilli, Sydney",
-    description:
-      "Attended St Aloysius' College in Kirribilli — one of Sydney's leading independent schools. Developed a strong foundation in analytical thinking, problem-solving, and technology.",
-  },
-  {
-    year: "Ongoing",
-    title: "Self-Taught & Continuously Learning",
-    org: "Software Engineering",
-    description:
-      "Hands-on experience across full-stack development, systems design, and modern web technologies. Constantly learning new frameworks, tools, and best practices.",
+      "Running a software engineering and consultancy studio from Sydney. Building high-performance websites, custom software, AI integrations into existing CRMs, and providing independent technical advice to businesses about to make serious software decisions.",
   },
 ];
 
@@ -72,11 +58,12 @@ export default function About() {
             <div className="relative">
               <div className="corner-marks relative aspect-[3/4] w-full max-w-[400px] overflow-hidden rounded-lg border border-border/50">
                 <Image
-                  src="/images/noah-campbell.jpeg"
+                  src="/images/noah-campbell.jpg"
                   alt="Noah Campbell — Founder of Hakon Digital"
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/60 via-transparent to-transparent" />
               </div>

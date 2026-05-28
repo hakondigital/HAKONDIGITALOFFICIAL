@@ -16,7 +16,7 @@ export const navLinks = [
   { label: "Home", href: "#home", page: "/" },
   { label: "Websites", href: "#websites", page: "/websites" },
   { label: "Software", href: "#software-systems", page: "/software" },
-  { label: "Odyssey", href: "#odyssey", page: "/odyssey" },
+  { label: "Consultancy", href: "#consultancy", page: "/consultancy" },
   { label: "Templates", href: "#portfolio", page: "/portfolio" },
   { label: "About", href: "#about" },
   { label: "Process", href: "#process" },
@@ -92,7 +92,7 @@ export const portfolioItems = [
     category: "Business Website",
     description:
       "A modern template for trade businesses — showcasing completed projects, services, and making quote requests easy for local homeowners.",
-    image: "/images/carpentry-showcase.png",
+    image: "/images/carpentry-showcase.jpg",
     gradient: "from-amber-500/20 to-orange-500/20",
   },
   {
@@ -100,7 +100,7 @@ export const portfolioItems = [
     category: "Professional Website",
     description:
       "A clean, trust-building template for law firms and professional services — clear service pages, client testimonials, and enquiry flows.",
-    image: "/images/anthony-hamer-associates.png",
+    image: "/images/anthony-hamer-associates.jpg",
     gradient: "from-blue-500/20 to-cyan-500/20",
   },
   {
@@ -108,7 +108,7 @@ export const portfolioItems = [
     category: "Advisory Website",
     description:
       "A polished template for advisory and consulting firms — simplified positioning, strong calls to action, and optimised lead capture.",
-    image: "/images/irx-advisors.png",
+    image: "/images/irx-advisors.jpg",
     gradient: "from-emerald-500/20 to-teal-500/20",
   },
 ];
