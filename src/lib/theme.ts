@@ -104,7 +104,7 @@ export const moduleLabels = {
   home: 'SYS.001 — HAKON DIGITAL',
   websites: 'SYS.002 — WEBSITES',
   softwareSystems: 'SYS.003 — SOFTWARE SYSTEMS',
-  leadEngine: 'SYS.004 — ODYSSEY',
+  consultancy: 'SYS.004 — CONSULTANCY',
   portfolio: 'SYS.005 — PORTFOLIO',
   process: 'SYS.006 — PROCESS',
   commitments: 'SYS.007 — COMMITMENTS',

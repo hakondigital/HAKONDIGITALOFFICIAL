@@ -170,16 +170,16 @@ export default function Hero() {
               ref={subtextRef}
               className={`mt-7 max-w-xl text-base leading-relaxed text-text-secondary sm:text-lg ${shouldReduceMotion ? "" : "opacity-0"}`}
             >
-              High-performance websites, custom software systems, and proprietary platforms — built with engineering precision for businesses that demand reliability and scale.
+              High-performance websites, custom software, AI integration into the tools you already run, and impartial technical advice before you sign the next five-figure software contract.
             </p>
             <div ref={badgeRef} className={`mt-8 ${shouldReduceMotion ? "" : "opacity-0"}`}>
               <div className="inline-flex items-center gap-3 rounded-md border border-accent/20 bg-accent/5 px-4 py-2.5">
                 <div className="status-dot" />
-                <span className="mono-label" style={{ opacity: 0.65 }}>WEB SYSTEMS</span>
+                <span className="mono-label" style={{ opacity: 0.65 }}>WEBSITES</span>
                 <span className="mx-1 h-3 w-px bg-border-light/40" />
-                <span className="mono-label" style={{ opacity: 0.65 }}>SOFTWARE</span>
+                <span className="mono-label" style={{ opacity: 0.65 }}>SOFTWARE + AI</span>
                 <span className="mx-1 h-3 w-px bg-border-light/40" />
-                <span className="mono-label" style={{ opacity: 0.65 }}>SAAS PLATFORMS</span>
+                <span className="mono-label" style={{ opacity: 0.65 }}>CONSULTANCY</span>
               </div>
             </div>
             <div ref={ctaRef} className={`mt-10 flex flex-wrap items-center gap-4 ${shouldReduceMotion ? "" : "opacity-0"}`}>

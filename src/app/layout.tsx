@@ -24,17 +24,17 @@ const barlow = Barlow({
 
 export const metadata = {
   metadataBase: new URL("https://www.hakondigital.com"),
-  title: "Hakon Digital | Affordable Website Design for Small Businesses Sydney",
+  title: "Hakon Digital | Custom Software, AI Integration & Tech Consultancy — Sydney",
   description:
-    "Professional small business websites starting from $960 AUD. Built in Sydney. Clear pricing. Modern design. No complexity.",
+    "Custom software, AI integration into your existing CRM, and independent technical consultancy. Vendor diagnostics, automation audits, and stack reviews from a Sydney engineer.",
   icons: {
     icon: "/favicon.ico?v=2",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Hakon Digital | Affordable Website Design for Small Businesses Sydney",
+    title: "Hakon Digital | Custom Software, AI Integration & Tech Consultancy — Sydney",
     description:
-      "Professional small business websites starting from $960 AUD. Built in Sydney. Clear pricing. Modern design. No complexity.",
+      "Custom software, AI integration into your existing CRM, and independent technical consultancy. Vendor diagnostics, automation audits, and stack reviews from a Sydney engineer.",
     url: "https://www.hakondigital.com",
     siteName: "Hakon Digital",
     images: [

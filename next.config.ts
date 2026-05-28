@@ -33,7 +33,11 @@ const securityHeaders = [
 
 // ── Next.js Config ──────────────────────────────────────────
 const nextConfig: NextConfig = {
+  output: "standalone",
   reactCompiler: true,
+  images: {
+    unoptimized: true,
+  },
   async headers() {
     return [
       {

@@ -5,19 +5,39 @@ import { fadeUp, staggerContainer, viewport } from "@/lib/motion";
 
 const systems = [
   {
-    title: "CRM Systems",
+    title: "AI Integration into Existing Tools",
     description:
-      "Custom client relationship management platforms designed around your actual workflow — not a generic tool you have to work around.",
+      "Plug AI directly into the CRM, project management, or accounting tools you already run — HubSpot, Salesforce, BuilderTrend, NextMinute, Xero — without replacing your stack. Smarter triage, auto-summaries, draft replies, and data enrichment.",
     icon: (
       <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.847.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
       </svg>
     ),
   },
   {
-    title: "Automation Pipelines",
+    title: "Custom Internal Software",
     description:
-      "End-to-end business process automation that eliminates manual data entry, reduces errors, and accelerates operational throughput.",
+      "Bespoke web apps and internal tools designed around your actual workflow — quoting engines, document triage, client portals, intake systems — built when off-the-shelf software genuinely doesn't fit.",
+    icon: (
+      <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 9.75L16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+      </svg>
+    ),
+  },
+  {
+    title: "API Bridges & Integrations",
+    description:
+      "Connect the systems that don't talk to each other today. Secure API layers between your CRM, website, payment gateway, accounting platform, and any third-party service — so data flows automatically instead of through copy-paste.",
+    icon: (
+      <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+      </svg>
+    ),
+  },
+  {
+    title: "Workflow Automation",
+    description:
+      "End-to-end automation for the repetitive grind — quoting, client intake, follow-ups, reminders, reporting. Eliminate manual data entry, reduce errors, and free up hours every week without changing the tools your team already uses.",
     icon: (
       <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
@@ -25,33 +45,13 @@ const systems = [
     ),
   },
   {
-    title: "Lead Generation Infrastructure",
+    title: "Operational Dashboards",
     description:
-      "Integrated lead capture, routing, and qualification systems that connect your website to your sales pipeline with zero manual intervention.",
-    icon: (
-      <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Business Dashboards",
-    description:
-      "Real-time operational dashboards that aggregate data from multiple sources into a single, actionable interface for informed decision-making.",
+      "Single-pane-of-glass dashboards that pull data from every tool you run — sales, ops, finance — into one real-time view. Built so you can make decisions from numbers instead of from spreadsheets and gut feel.",
     icon: (
       <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z" />
-      </svg>
-    ),
-  },
-  {
-    title: "API Integrations",
-    description:
-      "Secure, well-documented API layers that connect your systems to third-party services, payment gateways, and external data sources.",
-    icon: (
-      <svg className="h-5 w-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
       </svg>
     ),
   },
@@ -77,17 +77,17 @@ export default function SoftwareSystems() {
               variants={fadeUp}
               className="font-heading text-3xl font-bold tracking-tight text-text-primary sm:text-4xl lg:text-5xl"
             >
-              Custom Software{" "}
-              <span className="gradient-text">Engineering</span>
+              Custom Software &{" "}
+              <span className="gradient-text">AI Integration</span>
             </motion.h2>
             <motion.p
               variants={fadeUp}
               className="mt-5 text-base leading-relaxed text-text-secondary lg:text-lg"
             >
-              We engineer custom software solutions designed to automate
-              workflows, capture data, and improve operational efficiency.
-              Every system is built for reliability, maintainability, and
-              long-term scalability.
+              We build custom software and plug AI into the tools your business
+              already runs. Connect APIs to your existing CRM, automate the
+              manual grind, and ship internal systems that move faster than
+              your team can update a spreadsheet.
             </motion.p>
 
             <motion.div
@@ -105,10 +105,10 @@ export default function SoftwareSystems() {
               </div>
               <div className="space-y-2">
                 {[
-                  "Custom applications",
-                  "Process automation",
-                  "Data pipelines",
-                  "System integrations",
+                  "AI into existing CRMs",
+                  "Custom internal apps",
+                  "Workflow automation",
+                  "API integrations",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
                     <span className="h-px w-2 bg-accent/50" />

@@ -24,21 +24,7 @@ const timeline = [
     title: "Founder & Chief Technology Officer",
     org: "Hakon Digital",
     description:
-      "Running a software engineering and web development studio from Sydney's Northern Beaches. Building high-performance websites, custom software systems, and the Odyssey CRM platform.",
-  },
-  {
-    year: "Education",
-    title: "St Aloysius' College",
-    org: "Kirribilli, Sydney",
-    description:
-      "Attended St Aloysius' College in Kirribilli — one of Sydney's leading independent schools. Developed a strong foundation in analytical thinking, problem-solving, and technology.",
-  },
-  {
-    year: "Ongoing",
-    title: "Self-Taught & Continuously Learning",
-    org: "Software Engineering",
-    description:
-      "Hands-on experience across full-stack development, systems design, and modern web technologies. Constantly learning new frameworks, tools, and best practices.",
+      "Running a software engineering and consultancy studio from Sydney. Building high-performance websites, custom software, AI integrations into existing CRMs, and providing independent technical advice to businesses about to make serious software decisions.",
   },
 ];
 
@@ -103,12 +89,13 @@ export default function AboutPageContent() {
                 <div className="relative">
                   <div className="corner-marks relative h-[420px] w-[340px] overflow-hidden rounded-lg border border-border/50 sm:h-[500px] sm:w-[400px]">
                     <Image
-                      src="/images/noah-campbell.jpeg"
+                      src="/images/noah-campbell.jpg"
                       alt="Noah Campbell — Founder of Hakon Digital"
                       fill
                       className="object-cover object-top"
                       sizes="(max-width: 640px) 340px, 400px"
                       priority
+                      fetchPriority="high"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-bg-primary/80 via-transparent to-transparent" />
                   </div>
@@ -138,7 +125,7 @@ export default function AboutPageContent() {
                 Background & Experience
               </motion.h2>
               <motion.p variants={fadeUp} className="mt-4 max-w-2xl text-base leading-relaxed text-text-secondary">
-                From studying at one of Sydney&apos;s top schools to building software professionally — here&apos;s my journey so far.
+                A snapshot of where I&apos;m at and what I&apos;m building right now.
               </motion.p>
             </motion.div>
 

@@ -6,7 +6,7 @@ import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import Websites from "@/components/sections/Websites";
 import SoftwareSystems from "@/components/sections/SoftwareSystems";
-import LeadEngine from "@/components/sections/LeadEngine";
+import Consultancy from "@/components/sections/Consultancy";
 import Portfolio from "@/components/sections/Portfolio";
 import About from "@/components/sections/About";
 import Process from "@/components/sections/Process";
@@ -29,7 +29,7 @@ function HomeContent() {
         <div className="section-divider" />
         <SoftwareSystems />
         <div className="section-divider" />
-        <LeadEngine />
+        <Consultancy />
         <div className="section-divider" />
         <Portfolio />
         <div className="section-divider" />
